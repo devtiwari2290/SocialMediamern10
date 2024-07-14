@@ -1,10 +1,26 @@
 const express = require("express");
 const router = express.Router();
+const PostCollection = require("../models/post.schema");
 
 /* GET home page. */
-router.get("/", (req, res) => {
-  res.render("index", { title: "Homepage | SocialMedia", user: req.user });
+router.get("/", async (req, res) => {
+  try {
+      // const posts = await PostCollection.find();
+      const posts = await PostCollection.find().populate("user");
+
+      res.render("index", {
+          title: "Homepage | SocialMedia",
+          user: req.user,
+          posts: posts,
+      });
+  } catch (error) {
+      console.log(error);
+      res.send(error.message);
+  }
 });
+
+
+
 
 router.get("/about", (req, res) => {
   res.render("about", { title: "About | SocialMedia" , user: req.user });
@@ -14,7 +30,9 @@ router.get("/contact", (req, res) => {
   res.render("contact", { title: "Contact | SocialMedia", user: req.user });
 });
 
-router.get("/login", async (req, res) => {
+
+
+router.get("/login", (req, res) => {
   res.render("login", { title: "Login | SocialMedia", user: req.user });
 });
 
@@ -22,9 +40,23 @@ router.get("/register", (req, res, next)=>{
   res.render("register", { title: "Register | SocialMedia", user: req.user });
 })
 
-router.get("/forget", (req, res, next)=>{
-  res.render("forget", { title: "Forget | SocialMedia", user: req.user });
-})
+
+router.get("/forget-email", (req, res) => {
+  res.render("forgetemail", {
+      title: "Forgot Password  | SocialMedia",
+      user: req.user,
+  });
+});
+
+router.get("/verify-otp/:id", (req, res) => {
+  res.render("forgetOTP", {
+      title: "Verify OTP  | SocialMedia",
+      user: req.user,
+      id: req.params.id,
+  });
+});
+
+
 
 
 module.exports = router;

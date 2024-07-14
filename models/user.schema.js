@@ -1,6 +1,7 @@
 const mongoose = require("mongoose")
 const plm = require("passport-local-mongoose")
 
+
 const userSchema = new mongoose.Schema({
     username:{
         type:String,
@@ -11,9 +12,9 @@ const userSchema = new mongoose.Schema({
     password:String,
 
     avatar:{
-        type:String,
-        default:"https://www.pngitem.com/pimgs/m/150-1503945_transparent-user-png-default-user-image-png-png.png"
-
+        fileId: String,
+        url: String,
+        thumbnailUrl: String,
     },
 
     email:{
@@ -21,6 +22,13 @@ const userSchema = new mongoose.Schema({
         required:true["Email must required"],
         unique:true
     },
+
+    otp:{
+        type:Number,
+        default:0
+    },
+    posts: [{ type: mongoose.Schema.Types.ObjectId, ref: "post" }],
+    socketId: String,
 
 });
 

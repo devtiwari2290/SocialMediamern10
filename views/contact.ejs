@@ -2,9 +2,55 @@
   <!--  -->
   <%- include('partials/nav')%>
     <!--  -->
-    <div class="w-[100%] mx-auto p-10 bg-zinc-700 rounded">
-      <h1 class=" mb-10 text-white text-5xl font-bold">This is Contact Page</h1>
-      <a class="bg-red-300 px-5 py-2 text-white rounded" href="/login">Start Your Journey</a>
+    <div class="w-[100%] h-[90vh] mx-auto p-10 bg-black" style="  font-family: Alata, sans-serif;">
+      <h1 class=" text-white text-8xl font-bold  uppercase pl-14">Get <span class="text-red-600">In Touch</span></h1>
+      <div class="flex justify-between" >
+      <div class="w-[40%] h-[55vh] mt-14 ">
+        <form class="ml-40 pt-3" action="" method="">
+          <input class="w-[100%] py-4 mt-4  bg-transparent text-white" type="text" placeholder="Name" name="name" >
+          <hr class="w-[100%]  border-white">
+          <br>
+          <input class="w-[100%] py-4 mt-4  bg-transparent text-white" type="email" placeholder="Email" name="email">
+          <hr class="w-[100%]  border-white">
+          <br>
+          <input class="w-[100%] py-4 mt-4  bg-transparent text-white" type="text" placeholder="Message" name="message">
+          <hr class="w-[100%]  border-white">
+          <br><br>
+          <button class="bg-red-600 px-20 py-2 rounded-3xl text-white rounded font-semibold">Sumbit</button>
+        </form>
+      </div>
+<!-- ------------------------------------------------------------------------------- -->
+      <div class="w-[40%] h-[55vh] mt-14  pl-28 ">
+        <div class="pt-5">
+          <h1 class="text-1xl text-zinc-400 font-normal">Phone</h1>
+          <p class="text-white font-normal text-1xl"> 
+            (+91) 7905786808</p>
+        </div>
+
+        <div class="pt-10">
+          <h1 class="text-1xl text-zinc-400 font-normal">Email</h1>
+          <p  class="text-white font-normal text-1xl">devrajtiwari229@gmail.com</p>
+        </div>
+
+        <div class="pt-10">
+          <h1 class="text-1xl text-zinc-400 font-normal">Address</h1>
+          <p  class="text-white font-normal	text-1xl">Jhansi Up.</p>
+        </div>
+
+
+        <div class="pt-10 ">
+          <h1 class="text-1xl text-zinc-400 font-normal gap-x-20">Socials</h1> 
+
+          <i class="ri-facebook-fill  text-white font-normal	text-1xl "></i>
+          <i class="ri-twitter-x-fill   text-white font-normal	text-1xl px-2"></i>
+          <i class="ri-youtube-fill  text-white font-normal	text-1xl px-2"></i>
+        </div>
+      </div>
+
+   <!---------------------------------------------------->
+      </div>
+
+
     </div>
     <!--  -->
     <%- include('partials/footer')%>

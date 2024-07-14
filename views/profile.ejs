@@ -1,11 +1,291 @@
 <%- include('partials/header')%>
   <!--  -->
   <%- include('partials/nav')%>
-    <!--  -->
-    <div class="w-[100%] h-[87vh] mx-auto p-10 bg-black ">
-      <h1 class=" mb-10 text-white text-5xl font-bold">hello <%= user.username%> 👋</h1>
-      <img class="h-[200px] mb-10" src="<%= user.avatar%>" alt="">
-      <a class="bg-red-300 px-5 py-2 text-white rounded " href="/user/logout">Logout</a>
+ 
+  <div class="w-[100%] h-[110vh] pt-10  bg-black">
+     <!-- ------------------- User Profile Section ------------------------>
+
+    <div class="w-[100%] h-[41vh]  flex justify-between pt-4 px-44 mb-5">
+
+      <div>
+      <img class="w-[12vmax] h-[12vmax] object-cover mb-2 rounded-full ml-2" src="<%= user.avatar.url%>" alt="No Image">
+      <h1 class="text-white text-2xl font-semibold ml-5 mb-7"  style="  font-family: Caveat, cursive;"><%= user.username%>👋</h1>
+
+      <button class="bg-white px-10 py-2 text-black rounded font-normal text-center ml-7" >Follow</bitton>
+      </div>
+
+
+      <!-- -----------------User Stories Section ------------------------>
+      <div class="">
+        <h1 class="text-2xl font-normal text-white pl-3"  style="  font-family: Caveat, cursive;">Features stories</h1>
+        <div class="flex gap-x-8 pt-5 text-center ">
+          
+           <div>
+            <img class="avatarimage rounded-full w-[10vmax] h-[10vmax] object-cover " src="https://img.freepik.com/free-photo/beautiful-tropical-beach-sea_74190-6772.jpg?uid=R111895022&ga=GA1.1.98835681.1716370499&semt=sph "
+            alt="No image Found">
+            <p class="text-white font-normal text-1xl pt-2">Holiday</p>
+          </div> 
+     
+
+         <div>
+          <img class="avatarimage rounded-full w-[10vmax] h-[10vmax] object-cover " src="https://img.freepik.com/free-photo/happy-young-family-wearing-christmas-hats-sitting-isolated_171337-10552.jpg?uid=R111895022&ga=GA1.1.98835681.1716370499&semt=sph"
+          alt="No image Found">
+          <p class="text-white font-normal text-1xl pt-2">Family</p>
+        </div>
+    
+
+         <div>
+          <img class="avatarimage rounded-full w-[10vmax] h-[10vmax] object-cover " src="https://img.freepik.com/free-photo/portrait-men-sharing-affectionate-moment-friendship-support_23-2151310412.jpg?t=st=1719734257~exp=1719737857~hmac=0a7508ae4cf7a33873932b9492fe77028c375f040d266f732b639c3975f00e8c&w=1800"
+          alt="No image Found">
+          <p class="text-white font-normal text-1xl pt-2">Friends</p>
+        </div>
+
+
+         <div>
+            <img class="avatarimage rounded-full w-[10vmax] h-[10vmax] object-cover" src="https://img.freepik.com/free-photo/young-happy-entrepreneur-having-video-call-computer-home_637285-12737.jpg?t=st=1719734475~exp=1719738075~hmac=27107c50eca46778f643d5f933332a23ec3170925580f139bdcf5bc73a4acce7&w=740"
+            alt="No image Found">
+            <p class="text-white font-normal text-1xl pt-2">Work</p>
+          </div>
+
+
+        </div>
+      </div>
+        <!-- ----------------- -->
+
     </div>
-    <!--  -->
+
+    <!-- --------------------- Post and Bio Section ---------------------- -->
+
+    <div class="w-[100%] h-[58vh] flex justify-between  px-32">
+      <div class="w-[25%] h-[40vh]">
+        <p class="text-white text-1xl font-semibold py-2 pl-3 leading-10	"  style="  font-family: Caveat, cursive;">Welcome to my profile 🖤
+          👉UP ka Chora 😝
+          🔥Born on 22 Sep
+          ✈️🏍️📸🏏🏖️ HØlîc
+          ♍I’m not Rich ßut I’m Royal 👑
+          👍Live📿Laugh😊LoVe❤</p>
+
+      </div>
+
+      <div class="w-[65%] h-[55vh] ">
+        <div class="text-white ml-5"> 
+          <button class="btn px-14 py-3 mx-10 " onclick="UserData('Post')">Posts</button>
+          <button class="btn px-14 py-3 mx-10  " onclick="UserData('Followers')">Followers</button>
+          <button class="btn px-14 py-3 mx-10  " onclick="UserData('Following')">Following</button>
+        </div>
+        
+        <div id="Post" class="user px-10  py-7">
+          <div class="flex justify-evenly">
+          <% posts.forEach((post,index)=> { %>
+            <div>
+            <img class="h-[200px]" src="<%= post.media.thumbnailUrl%>" alt="">
+            <a href="/post/like/<%= post._id%>">
+              <i class="ri-heart-fill text-red-400 text-2xl"></i>
+            </a>
+            <span class="text-white font-normal text-2xl pt-2">
+              <%= post.likes.length%>
+            </span>
+            <div>
+            <textarea class="bg-transparent py-1 text-gray-300  rounded font-normal border border-gray-400 my-4 rounded text-base pl-2 placeholder-zinc-300" placeholder="Comment"></textarea>
+            </div>
+            <a class=" text-2xl  ml-20" href="/post/delete/<%= post._id%>">❌</a>
+            </div>
+            <%}) %>
+        </div>
+        </div>
+     
+
+        
+        <div id="Followers" class="user " style="display:none">
+          <div class="w-[50%] h-[10vh]  mx-auto  flex justify-evenly gap-x-10 mt-4">
+            <!-- ----------------------------------------------- -->
+            <div>
+            <img src="https://img.freepik.com/free-photo/portrait-man-smiling-restaurant_23-2150771031.jpg?t=st=1720291669~exp=1720295269~hmac=4298102f7371dd8765e590e8de21057880510d29a156260c5a66e845825b4ca7&w=740" alt="" class="w-[4vmax] h-[4vmax] rounded-full mt-1 object-cover ">
+          </div>
+
+            <div>
+              <h1 class="text-white font-semibold text-xl pt-3">Samar Bundela</h1>
+              <p class="text-white  text-center font-normal">bundela_24</p>
+            </div>
+
+              <div>
+            <button class="bg-white px-5 py-1 text-black rounded font-normal text-center my-5">Follow</button>
+          </div>
+
+          </div> 
+          <!-- --------------------------------------------------------------------------- -->
+
+          <div class="w-[50%] h-[10vh]  mx-auto flex justify-evenly gap-x-12 mt-4">
+            <!-- ----------------------------------------------- -->
+            <div>
+            <img src="https://img.freepik.com/free-photo/portrait-man-smiling-while-listening-music_23-2150771141.jpg?t=st=1720291328~exp=1720294928~hmac=9a1eb3f7d73e10fb1fac8b3864597afeef315b3f1d2d5b4e6a266c97f7a0f4f9&w=740" alt="" class="w-[4vmax] h-[4vmax] rounded-full mt-1 object-cover ">
+          </div>
+
+            <div>
+              <h1 class="text-white font-semibold text-xl pt-3">Prince Tiwari</h1>
+              <p class="text-white  text-center font-normal">i_m_prince24</p>
+            </div>
+
+              <div>
+            <button class="bg-white px-5 py-1 text-black rounded font-normal text-center my-5">Follow</button>
+          </div>
+
+          </div> 
+<!-- -------------------------------------------------------------------------------- -->
+
+<div class="w-[50%] h-[10vh]  mx-auto flex justify-evenly gap-x-14 mt-4">
+  <!-- ----------------------------------------------- -->
+  <div>
+  <img src="https://img.freepik.com/free-photo/portrait-handsome-man_23-2150770971.jpg?t=st=1720291613~exp=1720295213~hmac=65fec622c7c062824d3782a9aac35025848a566c89eb86522e3763a53d998c3a&w=740" alt="" class="w-[4vmax] h-[4vmax] rounded-full mt-1 object-cover ">
+</div>
+
+  <div>
+    <h1 class="text-white font-semibold text-xl pt-3">Abhay Rana</h1>
+    <p class="text-white  text-center font-normal">abhi_rana04</p>
+  </div>
+
+    <div>
+  <button class="bg-white px-5 py-1 text-black rounded font-normal text-center my-5">Follow</button>
+</div>
+
+</div> 
+
+<!-- ------------------------------------------------------------------------ -->
+
+<div class="w-[50%] h-[10vh]  mx-auto flex justify-evenly gap-x-14 mt-4">
+  <!-- ----------------------------------------------- -->
+  <div>
+  <img src="https://img.freepik.com/free-photo/portrait-handsome-man_23-2150770971.jpg?t=st=1720291613~exp=1720295213~hmac=65fec622c7c062824d3782a9aac35025848a566c89eb86522e3763a53d998c3a&w=740" alt="" class="w-[4vmax] h-[4vmax] rounded-full mt-1 object-cover ">
+</div>
+
+  <div>
+    <h1 class="text-white font-semibold text-xl pt-3">Abhay Rana</h1>
+    <p class="text-white  text-center font-normal">abhi_rana04</p>
+  </div>
+
+    <div>
+  <button class="bg-white px-5 py-1 text-black rounded font-normal text-center my-5">Follow</button>
+</div>
+
+</div> 
+<!-- -------------------------------------------------------------------------- -->
+        </div>
+        
+        <div id="Following" class="user " style="display:none">
+          <div class="w-[50%] h-[10vh] mx-96 flex justify-evenly gap-x-10 mt-4">
+            <!-- ----------------------------------------------- -->
+            <div>
+            <img src="https://img.freepik.com/free-photo/portrait-man-smiling-restaurant_23-2150771031.jpg?t=st=1720291669~exp=1720295269~hmac=4298102f7371dd8765e590e8de21057880510d29a156260c5a66e845825b4ca7&w=740" alt="" class="w-[4vmax] h-[4vmax] rounded-full mt-1 object-cover ">
+          </div>
+
+            <div>
+              <h1 class="text-white font-semibold text-xl pt-3">Samar Bundela</h1>
+              <p class="text-white  text-center font-normal">bundela_24</p>
+            </div>
+
+              <div>
+            <button class="bg-white px-5 py-1 text-black rounded font-normal text-center my-5">Message</button>
+          </div>
+
+          </div> 
+          <!-- --------------------------------------------------------------------------- -->
+
+          <div class="w-[50%] h-[10vh]  mx-96 flex justify-evenly gap-x-12 mt-4">
+            <!-- ----------------------------------------------- -->
+            <div>
+            <img src="https://img.freepik.com/free-photo/portrait-man-smiling-while-listening-music_23-2150771141.jpg?t=st=1720291328~exp=1720294928~hmac=9a1eb3f7d73e10fb1fac8b3864597afeef315b3f1d2d5b4e6a266c97f7a0f4f9&w=740" alt="" class="w-[4vmax] h-[4vmax] rounded-full mt-1 object-cover ">
+          </div>
+
+            <div>
+              <h1 class="text-white font-semibold text-xl pt-3">Prince Tiwari</h1>
+              <p class="text-white  text-center font-normal">i_m_prince24</p>
+            </div>
+
+              <div>
+            <button class="bg-white px-5 py-1 text-black rounded font-normal text-center my-5">Message</button>
+          </div>
+
+          </div> 
+<!-- -------------------------------------------------------------------------------- -->
+
+<div class="w-[50%] h-[10vh]  mx-96 flex justify-evenly gap-x-14 mt-4">
+  <!-- ----------------------------------------------- -->
+  <div>
+  <img src="https://img.freepik.com/free-photo/portrait-handsome-man_23-2150770971.jpg?t=st=1720291613~exp=1720295213~hmac=65fec622c7c062824d3782a9aac35025848a566c89eb86522e3763a53d998c3a&w=740" alt="" class="w-[4vmax] h-[4vmax] rounded-full mt-1 object-cover ">
+</div>
+
+  <div>
+    <h1 class="text-white font-semibold text-xl pt-3">Abhay Rana</h1>
+    <p class="text-white  text-center font-normal">abhi_rana04</p>
+  </div>
+
+    <div>
+  <button class="bg-white px-5 py-1 text-black rounded font-normal text-center my-5">Message</button>
+</div>
+</div>
+
+<div class="w-[50%] h-[10vh]  mx-96 flex justify-evenly gap-x-14 mt-4">
+  <!-- ----------------------------------------------- -->
+  <div>
+  <img src="https://img.freepik.com/free-photo/portrait-handsome-man_23-2150770971.jpg?t=st=1720291613~exp=1720295213~hmac=65fec622c7c062824d3782a9aac35025848a566c89eb86522e3763a53d998c3a&w=740" alt="" class="w-[4vmax] h-[4vmax] rounded-full mt-1 object-cover ">
+</div>
+
+  <div>
+    <h1 class="text-white font-semibold text-xl pt-3">Abhay Rana</h1>
+    <p class="text-white  text-center font-normal">abhi_rana04</p>
+  </div>
+
+    <div>
+  <button class="bg-white px-5 py-1 text-black rounded font-normal text-center my-5">Message</button>
+</div>
+</div>
+        </div>
+        </div>       
+<!-- ---------------------------------------------------------------------- -->
+      </div>
+
+    </div>
+
+
+    <!-- ------------------Profile Div Closed-------------------------->
+  </div>
+
+   
+     <!----------------- JavaScript Code -------------------------->
+
+    <script>
+      const button = document.querySelector('button');
+
+      button.addEventListener("click",function(){
+        if(button.innerText==="Follow"){
+            button.innerHTML = "Following";
+            button.style.backgroundColor = "transparent";
+            button.style.color = "white";
+            button.style.border = "1px solid white";
+        }
+        else{
+            button.innerHTML = "Follow";
+            button.style.backgroundColor = "white";
+            button.style.color = "black";
+            button.style.border = "none";
+        }
+      })
+
+
+      function UserData(data) {
+
+  var i;
+  var x = document.getElementsByClassName("user");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+    }
+
+    
+
+  document.getElementById(data).style.display = "block";
+}
+      
+    </script>
+
+
     <%- include('partials/footer')%>

@@ -2,7 +2,7 @@
   <!--  -->
   <%- include('partials/nav')%>
     <!--  -->
-    <div class="w-[100%] h-[87vh] mx-auto p-1 bg-black text-center">
+    <div class="w-[100%] h-[90vh] mx-auto p-1 bg-black text-center">
       
       <div class="flex justify-evenly gap-x-10 my-4">
         <!-- --------------------------- -->
@@ -15,7 +15,7 @@
         </div>
       </div>
 <!-- ------------------------------------------------ -->
-      <div class="text-center">
+      <div class="text-center animate-pulse pl-5" style="font-family: Caveat, cursive;">
         <h1 class=" mb-5 text-white text-5xl font-semibold text-center tracking-wider">Connect with your</h1>
       <span class=" text-center  text-4xl font-medium tracking-widest text-lime-300">friends easily</span>
       </div>
@@ -28,11 +28,11 @@
 
       <!-- -------------------------------------------------------- -->
        <div class="flex justify-center gap-x-20 mb-10 ml-40 ">
-        <div class="w-[80px] h-[80px] rounded-full bg-red-400 pt-5">
+        <div class="w-[80px] h-[80px] rounded-full bg-red-400 pt-5 animate-bounce	">
           <i class="ri-message-2-fill text-5xl "></i>
         </div>
 
-        <div class="w-[300px] h-[60px] rounded-3xl bg-blue-500 flex justify-center gap-x-4">
+        <div class="w-[300px] h-[60px] rounded-3xl bg-blue-500 flex justify-center gap-x-4 ">
           <img class="h-[40px] rounded-full mt-2" src="https://img.freepik.com/free-photo/guy-plaid-shirt_158595-126.jpg?t=st=1718895953~exp=1718899553~hmac=d0173d1e2189afd2791743a7ca8ec2758a9fb77d3c0e49bec839969576547d6f&w=1060" alt="">
           <div>
             <h1 class="text-black text-s font-bold">Devon Lane</h1>
@@ -41,7 +41,7 @@
           
         </div>
         
-        <div class="w-[300px] h-[60px] bg-zinc-800 rounded-3xl flex justify-evenly py-2 gap-x-10 ">
+        <div class="w-[300px] h-[60px] bg-zinc-800 rounded-3xl flex justify-evenly py-2 gap-x-10 animate-bounce	">
           <img class="h-[40px]" src="https://pngimg.com/uploads/whatsapp/whatsapp_PNG95162.png" alt="">
           <p class="text-white text-s font-medium py-`">Hi Buddy !
             <br>
@@ -51,11 +51,23 @@
         </div>
        </div>
 <!-- ------------------------------------------------------------------- -->
- <div class="text-center ml-60">
-  <img class="h-[250px]" src="https://www.apple.com/in/iphone-15-pro/images/overview/welcome/hero_endframe__ov6ewwmbhiqq_large_2x.jpg" alt="">
- </div>
+ <!-- <div class="text-center ml-60">
+  <img class="h-[250px]  " src="https://www.apple.com/in/iphone-15-pro/images/overview/welcome/hero_endframe__ov6ewwmbhiqq_large_2x.jpg " alt="">
+ 
+ </div> -->
+ 
+ <div class="flex justify-evenly mb-20 " >
+  <!-- <%= JSON.stringify(posts)%> -->
+  <%posts.forEach((post, index) => { %>
+  
+  <img class="h-[180px] mt-5" src="<%=post.media.thumbnailUrl%>" alt="">
+  
+  <%})%>
+  </div>
+
  <!-- ---------------------------------------------------------- -->
-      <a class="bg-white px-5 py-2 text-black rounded font-bold hover:bg-red-500 hover:text-white" href="/login">Start Your Journey</a>
+      <a class="bg-white px-7 py-3 text-black rounded-xl font-semibold hover:bg-black hover:text-white
+      hover:border border-white   transition-all	duration-700	ease-in-out" href="/login"  style="font-family: Caveat, cursive;">Let's ❤️ Connect</a>
     </div>
     <!--  -->
     <%- include('partials/footer')%>

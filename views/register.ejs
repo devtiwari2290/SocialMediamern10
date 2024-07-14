@@ -2,8 +2,8 @@
   <!--  -->
   <%- include('partials/nav')%>
     <!--  -->
-    <div class="w-[100%] mx-auto p-10 bg-black">
-      <h1 class=" mb-10 text-lime-300 text-6xl font-bold text-center">Register User</h1>
+    <div class="w-[100%] h-[90vh] mx-auto p-10 bg-[url(https://4kwallpapers.com/images/walls/thumbs_3t/16935.png)] bg-cover bg-center bg-no-repeat 	">
+      <!-- <h1 class=" mb-10 text-lime-300 text-6xl font-bold text-center">Register User</h1>
       <form class="text-center" action="/user/register" method="post">
         <input class=" w-[50%] py-3 my-5" type="text" name="username" placeholder="Username">
         <br><br>
@@ -14,7 +14,26 @@
         <button class="bg-lime-300 text-black px-10 py-2 font-semibold rounded text-xl ">Register User</button>
         <br><br>
       <p class="text-xl font-semibold text-red-400">Already have an account ? <a class=" text-red-400" href=" /login">Login</a></p>
-      </form>   
+      </form>    -->
+
+      <div class="w-[50%]  h-[70vh] bg-white/10 mx-auto mt-5 rounded-3xl backdrop-blur-md 	backdrop-opacity-10 border-2 border-white/20" >
+        <h1 class="text-slate-300	 text-4xl font-bold text-center pt-5" style="  font-family: Caveat, cursive;">Register</h1>
+        <form class="mx-40 py-5" action="/user/register" method="post">
+          <input class=" w-[100%] py-4 px-3 mt-2 bg-transparent placeholder-white text-white" type="text" name="username" placeholder ="Username"  >  
+          <hr class="w-[100%] border-white ">
+          <br>
+          <input class="w-[100%] py-4 px-3 mt-2  bg-transparent border-none placeholder-white text-white" type="email" name="email" placeholder="Email">
+          <hr class="w-[100%] border-white ">
+          <br>
+          <input class="w-[100%] py-4 px-3 mt-2  bg-transparent border-none placeholder-white text-white" type="password" name="password" placeholder="Password">
+          <hr class="w-[100%] border-white ">
+          <br>
+          <button class="bg-zinc-800	 text-white px-20 py-2 mt-5 mx-5 font-medium rounded-2xl text-xl " style="font-family: Caveat, cursive;">Register User</button>
+          <br><br>
+        <p class="text-xl font-bold text-slate-300" style="font-family: Caveat, cursive;">Already have an account ? <a class="text-slate-300 font-semibold" href=" /login">Login</a></p>
+        </form>  
+
+      </div>
       
     </div>
     <!--  -->

@@ -1,0 +1,23 @@
+<%- include('partials/header')%>
+  <!--  -->
+  <%- include('partials/nav')%>
+    <!--  -->
+<div class="w-[100%] h-[90vh] mx-auto p-10 ">
+    <form class="text-2xl m-auto w-1/2 " action="/user/send-mail" method="post">
+      <h1 class=" mb-10  text-5xl font-bold text-center" style="  font-family: Playwrite NZ, cursive">Forget Password ?</h1>
+
+      <img class="h-[200px] w-[200px] mx-auto mb-2" src="https://img.freepik.com/free-vector/grumpy-boy-with-frown_1308-165304.jpg?t=st=1719807905~exp=1719811505~hmac=416c246a6168d3aa664aef1b60c79818575ed7b6eeb462f250ce647b19b04e7f&w=996" alt="">
+
+      <h1 class=" mb-3  text-xl font-medium	 text-center tracking-wide" style="font-family: Caveat, cursive;">Enter the email address <br> associated with your account</h1>
+
+      <p class="text-red-500 text-center text-xl font-medium mb-3">We will email you a link to reset your password</p>
+
+      <input class="w-[79%] ml-20  border-none p-3 rounded  bg-transparent text-center" type="email" placeholder="Enter email address" name="email">
+      <hr class="w-[79%] border-black mb-5 ml-20">
+
+      <button class="mb-5 ml-60 hover:bg-red-600  text-xl bg-black px-16 py-2 text-white rounded" style="font-family: Caveat, cursive;">Send Mail</button>
+      <p class=" pl-40" style="font-family: Caveat, cursive;">Remember the password ? <a class=" text-red-500 " href=" /login">Login</a></p>
+    </form>
+
+   <!--  -->
+<%- include('partials/footer')%>

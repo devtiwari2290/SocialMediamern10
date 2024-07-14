@@ -1,26 +1,37 @@
-<nav class="flex justify-evenly gap-x-10 py-7 bg-black">
-    <div class="text-2xl font-extrabold text-white">Logo</div>
-    <div class="flex gap-x-10">
+<nav class="flex justify-evenly gap-x-14 py-5 bg-black  " style="font-family: Caveat, cursive;">
+    <div class="text-2xl font-extrabold text-white">Social Media</div>
+    <div class="flex gap-x-14 ">
        <% if(user){ %>
-        <a class="text-white hover:text-red-400" href="/user/profile">Home</a>
+        <a class="text-white hover:text-red-400 transition-all duration-700	ease-in-out	" href="/user/profile">Home</a>
+        <a class="text-white hover:text-red-400 transition-all duration-700	ease-in-out" href="/post/create">Create Post</a>
 
        <% } else{ %>
-        <a class="text-white hover:text-red-400" href="/">Home</a>
+        <a class="text-white hover:text-red-400 transition-all duration-700	ease-in-out" href="/">Home</a>
 
       <% } %>
-      <a class="text-white hover:text-red-400" href="/about">About</a>
-      <a class="text-white hover:text-red-400" href="/contact">Contact</a>
+      <a class="text-white hover:text-red-400 transition-all duration-700	ease-in-out" href="/about">About</a> 
+      <a class="text-white hover:text-red-400 transition-all duration-700	ease-in-out" href="/contact">Contact</a>
+
+      <% if(user){ %>
+
+        <a class="text-white hover:text-red-400 transition-all duration-700	ease-in-out" href="/user/chat">Chat</a>
+        <% } %>
     </div>
 
 
     <div>
 
         <% if(user){ %>
-            <a class="text-white hover:text-red-400" href="/user/logout">Login</a>
+            <!-- <a class="text-white font-extrabold hover:text-black hover:bg-white   bg-zinc-800 px-6 py-2 text-white rounded transition-all duration-700	ease-in-out" href="/user/settings"><img src="">
+                Settings</a> -->
+                <a href="/user/settings"><img class="object-cover rounded-full w-[30px] h-[30px]"
+                    src="<%= user.avatar.thumbnailUrl%>" alt="">
+                   </a>
+
 
             <% }else { %>
         
-                <a class="text-white hover:text-red-400" href="/login">Login</a>
+                <a class="text-white hover:text-black hover:bg-white transition-all duration-700	ease-in-out border-white border px-8 py-2 rounded-3xl font-semibold" href="/login">Login</a>
 
                 <% } %>
     </div>

@@ -1,0 +1,24 @@
+<%- include('partials/header')%>
+  <!--  -->
+  <%- include('partials/nav')%>
+
+
+    <div class="w-[100%] h-[90vh] mx-auto  bg-black pt-16">   
+     <div class="w-[30%] h-[65vh] rounded-3xl bg-transparent mx-auto border-2 border-t-sky-400	border-r-green-500	border-b-green-500  border-l-sky-400  shadow-inner  shadow-sky-400">
+      <h1 class=" mb-10 text-white  text-center text-4xl font-bold pt-20" style="font-family: Caveat, cursive;">Reset Password</h1>
+      <form class=" mx-auto " action="/user/reset-password/<%= user._id%>" method="post">
+        <input class="w-[70%] text-center mb-8 border p-3 rounded ml-16 border-gray-400 bg-transparent text-white" type="password" placeholder="Enter Old Password"
+          name="oldpassword" style="font-family: Caveat, cursive;">
+        <input class="w-[70%] text-center mb-10 border p-3 rounded ml-16 border-gray-400 bg-transparent text-white"   type="password" placeholder="Enter New Password"
+          name="newpassword" style="font-family: Caveat, cursive;">
+
+        <button class="mb-5 ml-16 hover:bg-red-400 px-15 w-[71%] py-3 text-white rounded" style="background: #00F260;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #0575E6, #00F260);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #0575E6, #00F260); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ font-family: Caveat, cursive;">Reset Password</button>
+      </form>
+     </div>
+    </div>
+    <!--  -->
+
+
+<%- include('partials/footer')%>
